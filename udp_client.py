@@ -30,7 +30,7 @@ def receive_messages(sock):
             break
 
 if __name__ == "__main__":
-    server_ip = "127.0.0.1"
+    server_ip = "45.132.19.1"
     server_port = 10000  # Must match the port in main.py
     sock, addr = create_udp_connection(server_ip, server_port)
     try:
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         recv_thread = threading.Thread(target=receive_messages, args=(sock,), daemon=True)
         recv_thread.start()
         while True:
-            line = input("Enter message (or 'exit' to quit): ")
+            line = input()
             if line.lower() == "exit":
                 break
             sock.sendto(line.encode(), addr)

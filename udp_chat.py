@@ -23,7 +23,7 @@ def handle_client(sock, addr):
             print(f"Handler error for {addr}: {e}")
             break
 
-def udp_chat_server(listen_ip: str = "127.0.0.1", listen_port: int = 10000):
+def udp_chat_server(listen_ip: str = "0.0.0.0", listen_port: int = 10000):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind((listen_ip, listen_port))
     print(f"UDP chat server listening on {listen_ip}:{listen_port}")
